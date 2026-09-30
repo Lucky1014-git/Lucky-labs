@@ -29,7 +29,9 @@ python -m unittest
 
 ## Team
 
-- Lakshitha (building StudySprint)
+<!-- Add yourself here on your Git lesson: - Your Name (role) -->
+
+- (your squad will add themselves here)
 
 ## Where to start
 
