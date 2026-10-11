@@ -53,3 +53,6 @@ def percent_correct(score, total):
     if total == 0:
         return 0
     return round(100 * score / total)
+def review_missed(cards, results):
+    """Return the cards the player got wrong (result is False)."""
+    return [card for card, correct in zip(cards, results) if not correct]
