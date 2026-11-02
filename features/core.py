@@ -20,7 +20,11 @@ def run_quiz(cards, ask=input, show=print):
             show("Not quite. The answer was: " + card["answer"])
     return score
 
+def mark_known(card):
+    card["known"] = True
 
+def get_review_cards(data):
+    return [c for c in get_cards(data) if not c.get("known", False)]
 def add_card(data, question, answer, category="general"):
     new_id = max((c["id"] for c in data["cards"]), default=0) + 1
     card = {"id": new_id, "question": question, "answer": answer, "category": category}

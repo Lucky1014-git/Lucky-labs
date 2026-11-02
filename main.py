@@ -17,6 +17,7 @@ def show_menu():
     print("5) Show the last card")
     print("6) Category breakdown")
     print("7) Deck summary")
+    print("8) Mark a card as known")
     print("0) Quit")
 
 
@@ -33,7 +34,7 @@ def main():
             print("See you next session!")
             break
         elif choice == "1":
-            cards = core.get_cards(data)
+            cards = core.get_review_cards(data)
             score = core.run_quiz(cards)
             total = len(cards)
             print("You scored " + str(score) + "/" + str(total) +
@@ -57,6 +58,17 @@ def main():
             print(core.count_by_category(core.get_cards(data)))
         elif choice == "7":
             print(reports.deck_summary(data))
+        elif choice == "8":
+            cards = core.get_cards(data)
+            for i, card in enumerate(cards, 1):
+                print(str(i) + ") " + card["question"])
+            pick = input("Card number to mark as known: ").strip()
+            if pick.isdigit() and 1 <= int(pick) <= len(cards):
+                core.mark_known(cards[int(pick) - 1])
+                storage.save_data(data)
+                print("Marked as known.")
+            else:
+                print("Please pick a number from the list.")
         else:
             print("Please pick a number from the menu.")
 
