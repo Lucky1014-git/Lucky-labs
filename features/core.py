@@ -6,6 +6,7 @@ def get_cards(data):
 
 
 def check_answer(card, guess):
+    """Return True if guess matches the card's answer, ignoring case and surrounding spaces."""
     return guess.strip().lower() == card["answer"].strip().lower()
 
 
