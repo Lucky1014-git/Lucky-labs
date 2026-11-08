@@ -6,6 +6,7 @@ def get_cards(data):
 
 
 def check_answer(card, guess):
+    """Return True if guess matches the card's answer, ignoring case and surrounding spaces."""
     return guess.strip().lower() == card["answer"].strip().lower()
 
 
@@ -20,7 +21,11 @@ def run_quiz(cards, ask=input, show=print):
             show("Not quite. The answer was: " + card["answer"])
     return score
 
+def mark_known(card):
+    card["known"] = True
 
+def get_review_cards(data):
+    return [c for c in get_cards(data) if not c.get("known", False)]
 def add_card(data, question, answer, category="general"):
     new_id = max((c["id"] for c in data["cards"]), default=0) + 1
     card = {"id": new_id, "question": question, "answer": answer, "category": category}
@@ -53,3 +58,6 @@ def percent_correct(score, total):
     if total == 0:
         return 0
     return round(100 * score / total)
+def review_missed(cards, results):
+    """Return the cards the player got wrong (result is False)."""
+    return [card for card, correct in zip(cards, results) if not correct]
