@@ -5,7 +5,13 @@ from a JSON file, quiz yourself, and see your score at the end. This is your
 squad's starting product for Elite 101 - you'll grow it one ticket at a time.
 
 ## Run it
+## What's new in v1.0
 
+- **Mark cards as known:** flag flashcards you've mastered so you can focus on the ones you haven't.
+- **Review missed cards:** a `review_missed` helper lets you go back over the questions you got wrong.
+- **Accurate scoring:** fixed the score counting and percent calculation so results match your answers.
+- **Bug fixes:** corrected typos in the `category` and `top_card` functions.
+- **Better tests and docs:** added unit tests for `average_score` and documented `check_answer`.
 ```bash
 python main.py
 ```
