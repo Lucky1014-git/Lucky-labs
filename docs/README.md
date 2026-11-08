@@ -35,9 +35,7 @@ python -m unittest
 
 ## Team
 
-<!-- Add yourself here on your Git lesson: - Your Name (role) -->
-
-- (your squad will add themselves here)
+-Lakshitha Vengadeswaran
 
 ## Where to start
 
